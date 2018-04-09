@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="data" class="java.util.Date"></bean>
+    <bean id="helloword" class="HelloWord">
+        <property name="name" value="Word"></property>
+        <property name="data" ref="data"></property>
+    </bean>
+    <bean id="p01" class="bean.Person">
+        <property name="name" value="张三"></property>
+        <property name="sex" value="男"></property>
+        <property name="phone" value="4687946"></property>
+    </bean>
+    <bean id="p02" class="bean.Person">
+        <property name="name" value="王五"></property>
+        <property name="sex" value="男"></property>
+        <property name="phone" value="4674678"></property>
+    </bean>
+    <bean id="p03" class="bean.Person">
+        <property name="name" value="李华"></property>
+        <property name="sex" value="女"></property>
+        <property name="phone" value="124567"></property>
+    </bean>
+    <bean id="party" class="bean.Party">
+        <constructor-arg index="0">
+            <value>2018校友聚会</value>
+        </constructor-arg>
+        <property name="members">
+            <list>
+                <ref bean="p01"></ref>
+                <ref bean="p02"></ref>
+                <ref bean="p03"></ref>
+            </list>
+        </property>
+    </bean>
+</beans>
